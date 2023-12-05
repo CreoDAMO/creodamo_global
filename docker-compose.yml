@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  creodamo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+      - 8080:8080
+    networks:
+      - creodamo_net
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    networks:
+      - creodamo_net
+
+networks:
+  creodamo_net:
