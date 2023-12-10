@@ -1,0 +1,28 @@
+# kubernetes/deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: creodamo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: creodamo
+  template:
+    metadata:
+      labels:
+        app: creodamo
+    spec:
+      containers:
+      - name: creodamo
+        image: creodamo:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
