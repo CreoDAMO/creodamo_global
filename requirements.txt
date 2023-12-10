@@ -1,7 +1,6 @@
-blinker==1.7.0
-click==8.1.7
-Flask==3.0.0
-itsdangerous==2.1.2
-Jinja2==3.1.2
-MarkupSafe==2.1.3
-Werkzeug==3.0.1
+blockchain-sdk==1.2.0
+ai-ml-library==0.5.2
+cloud-services-sdk==2.1.3
+security-framework==3.0.1
+community-engagement-utils==1.4.0
+regulatory-compliance-tools==2.3.5
