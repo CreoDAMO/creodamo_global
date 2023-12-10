@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CreoDAMO</title>
+  <title>CreoDAMO Platform</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
 </head>
 <body>
-  <h1>CreoDAMO Trading Platform</h1>
 
-  <div id="data"></div>
+  <div id="app">
   
+    <h1>CreoDAMO</h1>
+
+    <div id="market-data">
+      <!-- Real-time market data will display here -->
+    </div>
+
+    <div id="trading-form">
+      <!-- Form to place trades -->
+    </div>
+
+  </div>
+
   <script>
-    // connect to websocket and display data
+
+    new Vue({
+      el: '#app',
+      data: {
+        marketData: [],
+        positions: []
+      },
+
+      mounted() {
+        // Connect to websocket for real-time updates
+      },
+
+      methods: {
+        placeOrder() {
+          // Send order to backend
+        }
+      }
+
+    });
+
   </script>
+
 </body>
 </html>
