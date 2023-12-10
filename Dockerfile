@@ -1,10 +1,17 @@
-FROM python:3.9-slim
+(Improved for Multi-Stage Builds)
 
+# Dockerfile
+
+# Build stage
+FROM python:3.9-slim as build
 WORKDIR /app
-
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+# Final stage
+FROM python:3.9-slim
+WORKDIR /app
+COPY --from=build /app /app
 COPY . .
-
-CMD ["python", "creodamo_platform/creodamo.py"]
+EXPOSE 8000
+CMD ["python", "creodamo.py"]
