@@ -1,6 +1,53 @@
 # ** CreoDAMO **
 
 ```
+ `creodamo_platform` folder:
+
+```
+📂 creodamo_platform
+  ├─ 📄 Dockerfile
+  ├─ 📄 deployment.yaml
+  ├─ 📄 LICENSE
+  ├─ 📄 docker-compose.yml
+  ├─ 📄 README.md
+  ├─ 📄 requirements.txt
+  ├─ 📄 configurations.py
+  ├─ 📄 run.py
+  ├─ 📂 creodamo_platform
+  │   ├─ 📄 Invitation.py
+  │   ├─ 📄 __init__.py
+  │   ├─ 📄 ai_ml_services.py
+  │   ├─ 📄 authentication.py
+  │   ├─ 📄 blockchain_integration.py
+  │   ├─ 📄 celery_tasks.py
+  │   ├─ 📄 chaos_engineering.py
+  │   ├─ 📄 cloud_services.py
+  │   ├─ 📄 collaboration.py
+  │   ├─ 📄 creodamo.py
+  │   ├─ 📄 creolang.py
+  │   ├─ 📄 documentation.py
+  │   ├─ 📄 feature_flags.py
+  │   ├─ 📂 frontend
+  │   │   └─ ... (frontend files)
+  │   ├─ 📄 garden_watering.py
+  │   ├─ 📄 governance.py
+  │   ├─ 📄 incident_response.py
+  │   ├─ 📄 monitoring.py
+  │   ├─ 📄 proof_of_creo.py
+  │   ├─ 📄 regulatory_compliance.py
+  │   ├─ 📄 security_framework.py
+  │   ├─ 📄 security_pipeline.py
+  │   ├─ 📄 strategies.py
+  │   ├─ 📂 tests
+  │   │   └─ ... (test files)
+  │   ├─ 📄 trading.py
+  │   ├─ 📄 user.py
+  │   ├─ 📄 utils.py
+  │   ├─ 📄 ventures_fund.py
+  │   └─ 📄 websocket.py
+  └─ 📂 documentation_and_reporting
+      └─ 📄 documentation_and_reporting.py
+```
 
 ![CreoDAMO Logo](https://example.com/creodamo-logo.png)
 
