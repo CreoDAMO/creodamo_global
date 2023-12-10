@@ -6,7 +6,7 @@ numpy
 Django
 
 # Blockchain
-web3.py
+web3
 eth-utils 
 
 # AI/ML
