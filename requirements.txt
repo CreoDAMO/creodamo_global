@@ -1,27 +1,27 @@
-# requirements.txt
+# requirements.txt 
 
-web3.py==5.24.0
+web3==7.18.0
 python-blockchain==0.8.6
 py-solc-x==0.5.9
 
-TensorFlow==2.8.0
+TensorFlow==2.8.0  
 scikit-learn==1.1.1
 PyTorch==1.12.0
 
-boto3==1.27.0  
-google-cloud-storage==2.10.0
+boto3==1.27.0
+google-cloud-storage==2.10.0  
 azure-storage-blob==12.9.0
 
 cryptography==37.0.2
 pyjwt==2.3.0
-ssh-python==1.1.0
+ssh-python==1.1.0 
 
 voluptuous==0.12.2
 jsonschema==3.4.0
 validictory==2.1.1
 
 pytest==7.1.2
-mock==5.0.1
+mock==5.0.1  
 pytest-cov==3.0.0
 
 Flask==2.2.1
