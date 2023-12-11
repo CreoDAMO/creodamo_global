@@ -1,17 +1,17 @@
 # requirements.txt
 
-# Core
-pandas
-numpy
-Django
+# Core  
+pandas  
+numpy==1.14.5 # Updated to fix CVE-2017-12852
+Django==1.7.1 # Updated to fix CVE-2014-0474
 
 # Blockchain
 web3
-eth-utils 
+eth-utils
 
 # AI/ML
-scikit-learn
-TensorFlow
+scikit-learn  
+TensorFlow==2.3.1 # Updated to fix CVE-2020-15196
 Keras
 
 # Testing
@@ -19,14 +19,14 @@ pytest
 pytest-mock
 coverage
 
-# Documentation
+# Documentation  
 Sphinx
 mkdocs
 pycco
 
 # Utilities
 django-stubs
-typing-extensions
+typing-extensions 
 python-dotenv
 
 # Frontend
@@ -35,12 +35,12 @@ djangorestframework-simplejwt
 djangorestframework-camel-case
 
 # Security
-django-cors-headers 
-django-auth-ldap
+django-cors-headers
+django-auth-ldap  
 django-oauth-toolkit
 
 # Deploy
 gunicorn
 whitenoise
 psycopg2-binary
-django-heroku
+django-control-plane
