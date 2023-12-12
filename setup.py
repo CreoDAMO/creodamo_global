@@ -14,8 +14,8 @@ setup(
     'websockets',
 
     # Add fixed versions
-    'numpy==1.14.5',  
-    'Django==1.7.1',
+    'numpy==1.26.2',  
+    'Django==4.1.5',
     'TensorFlow==2.3.1' 
   ],
 
