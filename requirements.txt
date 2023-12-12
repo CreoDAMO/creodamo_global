@@ -2,17 +2,16 @@
 
 # Core
 pandas==2.1.4
-numpy==1.26.2 # Updated to latest 1.26.2 for security and features
-Django==5.0 # Version with security fixes
+numpy==1.26.2
+Django==5.0
 
 # Blockchain
 web3
 eth-utils
 
 # AI/ML
-scikit-learn==1.3.2 # Updated to version 1.3.2
-TensorFlow==2.15.0.post1 # Version with CVE fixes
-Keras==3.0.1 # Updated to latest stable
+scikit-learn==1.3.2
+TensorFlow==2.15.0.post1  # Keras is included within TensorFlow as tf.keras
 
 # Testing
 pytest
@@ -43,5 +42,5 @@ django-oauth-toolkit
 gunicorn
 whitenoise
 psycopg2-binary
-django==5.0
-aiohttp>=3.9.0 # not directly required, pinned by Snyk to avoid a vulnerability
+django==5.0  # This seems to be a duplicate of Django listed above
+aiohttp>=3.9.0  # Pinned for security reasons
