@@ -3,7 +3,7 @@
 # Core
 pandas==1.4.3
 numpy==1.26.2 # Updated to latest 1.26.2 for security and features
-django==5.0.1 # Version with security fixes
+Django==4.1.5 # Version with security fixes
 
 # Blockchain
 web3
@@ -43,4 +43,4 @@ django-oauth-toolkit
 gunicorn
 whitenoise
 psycopg2-binary
-django==5.0.1
+django==4.1.5
