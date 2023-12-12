@@ -11,7 +11,7 @@ eth-utils
 
 # AI/ML
 scikit-learn==1.3.2 # Updated to version 1.3.2
-TensorFlow==2.11.0 # Version with CVE fixes
+TensorFlow==2.11.1 # Version with CVE fixes
 Keras==2.11.0 # Updated to latest stable
 
 # Testing

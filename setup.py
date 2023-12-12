@@ -16,7 +16,7 @@ setup(
     # Add fixed versions
     'numpy==1.26.2',  
     'Django==4.1.5',
-    'TensorFlow==2.3.1' 
+    'TensorFlow==2.11.1' 
   ],
 
   entry_points={
