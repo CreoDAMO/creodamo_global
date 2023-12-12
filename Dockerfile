@@ -15,11 +15,11 @@ RUN apt-get update && apt-get install -y \
     libsasl2-dev \
     python3-dev
 
-# Copy requirements.txt to the working directory
-COPY requirements.txt .
+# Copy pyproject.toml to the working directory
+COPY pyproject.toml .
 
-# Install Python dependencies
-RUN pip install -r requirements.txt
+# Install Python dependencies using Poetry
+RUN poetry install --no-root
 
 # Final stage
 FROM python:3.13.0a2-slim-bullseye
@@ -29,9 +29,6 @@ WORKDIR /app
 
 # Copy the built files from the build stage to the final stage
 COPY --from=build /app /app
-
-# Copy the current directory to the working directory in the final stage
-COPY . .
 
 # Set environment variables for configuration
 ENV ENV_VAR_NAME=value
