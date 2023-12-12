@@ -16,7 +16,7 @@ setup(
     # Add fixed versions
     'numpy==1.26.2',  
     'Django==5.0',
-    'TensorFlow==2.11.1' 
+    'TensorFlow==2.15.0.post1' 
   ],
 
   entry_points={
