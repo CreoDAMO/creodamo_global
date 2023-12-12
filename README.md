@@ -51,49 +51,45 @@ Here are some key points about the structure:
 - The `README.md` file provides instructions or information about the project.
 - Other files and folders not specified explicitly are left open for the specific needs and requirements of the project.
 
+# CreoDAMO
+## Decentralized Asset Management and Optimization
+
+CreoDAMO is a blockchain-based platform for securely managing digital assets. 
+
 ## Getting Started
 
-To get started with CreoDAMO, please follow the steps below:
+To run CreoDAMO locally:
 
-1. Clone the CreoDAMO repository:
-
-   ```shell
-   git clone https://github.com/creodamo/creodamo.git
-   ```
-
-2. Configure the project settings:
-
-   - Update the `configurations.py` file to set up the necessary configurations for your environment.
-   - Modify the `pyproject.toml` file to specify project dependencies.
-
-3. Start the application:
-
-   ```shell
-   python run.py
-   ```
-
-4. Access the CreoDAMO user interface:
-
-   Open your web browser and navigate to http://localhost:8000 to access the CreoDAMO web interface.
-
-## Contributing
-
-We welcome contributions from the community! If you'd like to contribute to CreoDAMO, please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-CreoDAMO is licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
-
-## Folder Structure
-
-The project's folder structure has been updated:
-
-- `creodamo_platform`: Contains the main application code.
-- `tests`: Includes test files for the application.
-- `frontend`: Holds frontend files.
-- `documentation_and_reporting`: Contains documentation and reporting files.
-
-Please refer to the specific folders for more details on their contents.
-
-Feel free to customize this README file further according to your project's specific requirements and add any additional sections or information as needed.
 ```
+git clone https://github.com/creodamo/creodamo_platform.git
+cd creodamo_platform
+poetry install
+python run.py
+```
+
+This will start the CreoDAMO backend on http://localhost:8000.
+
+## Documentation
+
+See the docs folder for API documentation and tutorials.
+
+## Features
+
+- Digital asset management 
+- Algorithmic trading strategies
+- Decentralized storage on IPFS
+- Built on Ethereum and Chainlink oracles
+
+## Technology
+
+The backend uses Django and Python and integrates with:
+
+- Web3.py for Ethereum 
+- IPFS HTTP API
+- PostgreSQL database
+
+The frontend is a single page app built with React.
+
+## Development
+
+To contribute, see CONTRIBUTING.md. Pull requests welcome!
