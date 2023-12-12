@@ -8,16 +8,32 @@ authors = ["Jacque Antoine DeGraff<jacquedegraff@creodamo.com>"]
 python = ">=3.12.1,<3.13"
 azure-iot-starterkit-cli = "^1.1.0"
 dynaconf = "^3.2.4"
+pandas = "2.1.4"
+numpy = "1.26.2"
+Django = "5.0"
+scikit-learn = "1.3.2"
+pytest = "*"
+pytest-mock = "*"
+coverage = "*"
+Sphinx = "*"
+mkdocs = "*"
+pycco = "*"
+django-stubs = "*"
+typing-extensions = "*"
+python-dotenv = "*"
+django-rest-framework = "*"
+djangorestframework-simplejwt = "*"
+djangorestframework-camel-case = "*"
+django-cors-headers = "*"
+django-auth-ldap = "*"
+django-oauth-toolkit = "*"
+gunicorn = "*"
+whitenoise = "*"
+psycopg2-binary = "*"
+aiohttp = ">=3.9.0"
 
-[tool.pyright]
-# https://github.com/microsoft/pyright/blob/main/docs/configuration.md
-useLibraryCodeForTypes = true
-exclude = [".cache"]
-
-[tool.ruff]
-# https://beta.ruff.rs/docs/configuration/
-select = ['E', 'W', 'F', 'I', 'B', 'C4', 'ARG', 'SIM']
-ignore = ['W291', 'W292', 'W293']
+[tool.poetry.scripts]
+creodamo = "run:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
