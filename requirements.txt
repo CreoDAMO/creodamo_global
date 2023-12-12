@@ -1,7 +1,7 @@
 # requirements.txt
 
 # Core
-pandas==1.4.3
+pandas==1.5.3
 numpy==1.26.2 # Updated to latest 1.26.2 for security and features
 Django==5.0 # Version with security fixes
 
