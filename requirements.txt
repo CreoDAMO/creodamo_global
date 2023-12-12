@@ -3,7 +3,7 @@
 # Core
 pandas==1.4.3
 numpy==1.26.2 # Updated to latest 1.26.2 for security and features
-Django==5.0.1 # Version with security fixes
+django==5.0.1 # Version with security fixes
 
 # Blockchain
 web3
