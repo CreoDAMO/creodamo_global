@@ -63,7 +63,7 @@ To run CreoDAMO locally:
 ```
 git clone https://github.com/creodamo/creodamo_platform.git
 cd creodamo_platform
-poetry install
+pip install poetry
 python run.py
 ```
 
