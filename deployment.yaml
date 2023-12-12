@@ -17,6 +17,7 @@ spec:
       containers:
       - name: creodamo
         image: creodamo:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         resources:
@@ -26,3 +27,17 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          runAsUser: 10000
+          capabilities:
+            drop:
+            - ALL
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 3
+          periodSeconds: 3
