@@ -43,4 +43,4 @@ django-oauth-toolkit
 gunicorn
 whitenoise
 psycopg2-binary
-django-control-plane
+django==5.0.1
