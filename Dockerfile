@@ -2,6 +2,8 @@
 
 # Build stage
 FROM python:3.13.0a2-slim-bullseye as build
+
+# Set working directory
 WORKDIR /app
 
 # Install fixed zlib version and dependencies for python-ldap
@@ -13,21 +15,31 @@ RUN apt-get update && apt-get install -y \
     libsasl2-dev \
     python3-dev
 
+# Copy requirements.txt to the working directory
 COPY requirements.txt .
 
-# Now install Python dependencies
+# Install Python dependencies
 RUN pip install -r requirements.txt
 
 # Final stage
 FROM python:3.13.0a2-slim-bullseye
+
+# Set working directory
 WORKDIR /app
+
+# Copy the built files from the build stage to the final stage
 COPY --from=build /app /app
+
+# Copy the current directory to the working directory in the final stage
 COPY . .
 
-# Install latest dependencies (if needed)
-# Note: You might not need to run pip install again if you've already installed all requirements in the build stage.
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+# Set environment variables for configuration
+ENV ENV_VAR_NAME=value
 
-EXPOSE 8000
+# Add labels for better maintainability
+LABEL maintainer="Jacque Antoine DeGraff<jacquedegraff@creodamo.com>"
+LABEL version="1.0"
+LABEL description="Dockerfile for the application"
+
+# Specify the command to run when the container starts
 CMD ["python", "creodamo.py"]
