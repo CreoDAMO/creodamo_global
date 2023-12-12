@@ -15,7 +15,7 @@ setup(
 
     # Add fixed versions
     'numpy==1.26.2',  
-    'Django==4.1.13',
+    'Django==5.0',
     'TensorFlow==2.11.1' 
   ],
 
