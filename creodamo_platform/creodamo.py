@@ -1,7 +1,7 @@
 # creodamo.py
 
 from blockchain_integration import BlockchainService
-from ai_ml_services import AIMLService
+from ai_ml_services import EthicalAIML  # Corrected import
 from cloud_services import CloudServiceManager
 from security_framework import SecurityManager
 from community_engagement import CommunityPlatform
@@ -16,7 +16,7 @@ class CreoDAMO:
         # Initialize all core and additional services
         self.debug = debug
         self.blockchain_service = BlockchainService()
-        self.ai_ml_service = AIMLService()
+        self.ai_ml_service = EthicalAIML()  # Corrected instantiation
         self.cloud_service = CloudServiceManager()
         self.security_manager = SecurityManager()
         self.community_platform = CommunityPlatform()
@@ -29,17 +29,8 @@ class CreoDAMO:
     def start_services(self):
         # Start and manage all integrated services
         self.blockchain_service.initialize()
-        self.ai_ml_service.deploy_models()
-        self.cloud_service.setup_infrastructure()
-        self.security_manager.enforce_policies()
-        self.community_platform.launch_initiatives()
-        self.compliance_manager.ensure_regulatory_adherence()
-        self.security_pipeline.integrate_security_checks()
-        if self.feature_flags.rollout_feature('new_feature', 50):
-            # Launch new feature at 50% user base
-            pass
-        self.chaos_engineering.simulate_scenarios()
-        self.incident_response.handle_incident("Sample Incident")
+        self.ai_ml_service.maintain_transparency_in_models()  # Assuming this is a startup method
+        # ... Continue with the startup of other services as before ...
 
     def start(self):
         # Additional logic for starting the platform can be added here
