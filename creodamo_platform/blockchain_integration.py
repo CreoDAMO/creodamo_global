@@ -2,11 +2,10 @@
 
 class BlockchainService:
     def __init__(self):
-        # Initialization for blockchain connections and protocols
-        pass
+        # Initialization code for BlockchainService
 
     def initialize(self):
-        # Code to initialize the blockchain service
+        # Code to initialize the Blockchain service
         pass
 
     # Additional methods for blockchain service as needed
