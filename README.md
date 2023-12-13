@@ -1,13 +1,12 @@
 # CreoDAMO
 
-```
 creodamo/
 ├── creodamo/
 |   ├── __init__.py
 |   ├── settings.py
 |   ├── urls.py
 |   ├── wsgi.py
-|   ├── asgi.py 
+|   ├── asgi.py
 |   └── ...
 ├── apps/
 |   ├── blockchain/
@@ -34,7 +33,6 @@ creodamo/
 ├── pyproject.toml
 ├── README.md
 └── ...
-```
 
 Here are some key points about the structure:
 
@@ -51,16 +49,23 @@ Here are some key points about the structure:
 - The `README.md` file provides instructions or information about the project.
 - Other files and folders not specified explicitly are left open for the specific needs and requirements of the project.
 
-# CreoDAMO
 ## Decentralized Asset Management and Optimization
 
-CreoDAMO is a blockchain-based platform for securely managing digital assets. 
+CreoDAMO is a blockchain-based platform for securely managing digital assets.
 
 ## Getting Started
 
 To run CreoDAMO locally:
 
-```
+
+## Decentralized Asset Management and Optimization
+
+CreoDAMO is a blockchain-based platform for securely managing digital assets.
+
+## Getting Started
+
+To run CreoDAMO locally:
+
 git clone https://github.com/creodamo/creodamo_platform.git
 cd creodamo_platform
 pip install poetry
@@ -68,7 +73,7 @@ cd creodamo_plaform
 python creodamo.py --debug
 ```
 
-This will start the CreoDAMO backend on http://localhost:8000.
+This will start the CreoDAMO backend on <http://localhost:8000>.
 
 ## Documentation
 
@@ -76,7 +81,7 @@ See the `docs` folder for API documentation and tutorials.
 
 ## Features
 
-- Digital asset management 
+- Digital asset management
 - Algorithmic trading strategies
 - Decentralized storage on IPFS
 - Built on Ethereum and Chainlink oracles
@@ -85,7 +90,7 @@ See the `docs` folder for API documentation and tutorials.
 
 The backend uses Django and Python and integrates with:
 
-- Web3.py for Ethereum 
+- Web3.py for Ethereum
 - IPFS HTTP API
 - PostgreSQL database
 
