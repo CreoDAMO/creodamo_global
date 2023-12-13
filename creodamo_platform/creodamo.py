@@ -1,10 +1,11 @@
 # creodamo.py
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 from blockchain_integration import BlockchainService
 from ai_ml_services import EthicalAIML
 from cloud_services import DecentralizedCloudService
-from security_framework import CryptoSecurityManager  # Corrected import statement
+from security_framework import CryptoSecurityManager
 from community_engagement import CommunityEngagementPlatform
 from regulatory_compliance import RegulatoryComplianceManager
 from security_pipeline import SecurityPipeline
@@ -22,26 +23,29 @@ class CreoDAMO:
             debug (bool): If True, the application runs in debug mode.
         """
         self.debug = debug
-        self.blockchain_service = BlockchainService()
-        self.ai_ml_service = EthicalAIML()
-        self.cloud_service = DecentralizedCloudService()
-        self.security_manager = CryptoSecurityManager()  # Corrected class instantiation
-        self.community_platform = CommunityEngagementPlatform()
-        self.compliance_manager = RegulatoryComplianceManager()
-        self.security_pipeline = SecurityPipeline()
+        self.services = [
+            BlockchainService(),
+            EthicalAIML(),
+            DecentralizedCloudService(),
+            CryptoSecurityManager(),
+            CommunityEngagementPlatform(),
+            RegulatoryComplianceManager(),
+            SecurityPipeline(),
+        ]
 
     def start_services(self):
         """
         Start and manage all integrated services of the application.
+        Using ThreadPoolExecutor to initialize services concurrently.
         """
-        self.blockchain_service.initialize()
-        self.ai_ml_service.maintain_transparency_in_models()
-        self.cloud_service.deploy_to_ipfs()
-        self.security_manager.implement_tls_encryption()
-        self.community_platform.develop_community_voting_portal()
-        self.compliance_manager.monitor_fintech_regulations()
-        self.security_pipeline.integrate_security_checks()
-        # Additional service startup logic...
+        with ThreadPoolExecutor() as executor:
+            future_to_service = {executor.submit(service.initialize): service for service in self.services}
+            for future in future_to_service:
+                service = future_to_service[future]
+                try:
+                    future.result()
+                except Exception as e:
+                    print(f"Error initializing {service.__class__.__name__}: {str(e)}")
 
     def start(self):
         """
@@ -51,10 +55,15 @@ class CreoDAMO:
             print("Starting CreoDAMO in debug mode...")
         self.start_services()
 
-if __name__ == "__main__":
+def parse_arguments():
+    """
+    Parse command line arguments.
+    """
     parser = argparse.ArgumentParser(description='Run CreoDAMO Platform')
     parser.add_argument('--debug', action='store_true', help='Run in debug mode')
-    args = parser.parse_args()
+    return parser.parse_args()
 
+if __name__ == "__main__":
+    args = parse_arguments()
     creo_damo = CreoDAMO(debug=args.debug)
     creo_damo.start()
