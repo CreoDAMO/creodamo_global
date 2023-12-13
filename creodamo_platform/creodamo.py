@@ -1,3 +1,5 @@
+# creodamo.py
+
 from blockchain_integration import BlockchainService
 from ai_ml_services import AIMLService
 from cloud_services import CloudServiceManager
@@ -10,8 +12,9 @@ from chaos_engineering import ChaosEngineering
 from incident_response import IncidentResponse
 
 class CreoDAMO:
-    def __init__(self):
+    def __init__(self, debug=False):
         # Initialize all core and additional services
+        self.debug = debug
         self.blockchain_service = BlockchainService()
         self.ai_ml_service = AIMLService()
         self.cloud_service = CloudServiceManager()
@@ -38,6 +41,17 @@ class CreoDAMO:
         self.chaos_engineering.simulate_scenarios()
         self.incident_response.handle_incident("Sample Incident")
 
+    def start(self):
+        # Additional logic for starting the platform can be added here
+        if self.debug:
+            print("Starting CreoDAMO in debug mode...")
+        self.start_services()
+
 if __name__ == "__main__":
-    creo_damo = CreoDAMO()
-    creo_damo.start_services()
+    import argparse
+    parser = argparse.ArgumentParser(description='Run CreoDAMO Platform')
+    parser.add_argument('--debug', action='store_true', help='Run in debug mode')
+    args = parser.parse_args()
+
+    creo_damo = CreoDAMO(debug=args.debug)
+    creo_damo.start()
