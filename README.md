@@ -1,4 +1,4 @@
-# **CreoDAMO**
+# CreoDAMO
 
 ```
 creodamo/
@@ -64,14 +64,15 @@ To run CreoDAMO locally:
 git clone https://github.com/creodamo/creodamo_platform.git
 cd creodamo_platform
 pip install poetry
-python run.py
+cd creodamo_plaform
+python creodamo.py
 ```
 
 This will start the CreoDAMO backend on http://localhost:8000.
 
 ## Documentation
 
-See the docs folder for API documentation and tutorials.
+See the `docs` folder for API documentation and tutorials.
 
 ## Features
 
@@ -92,4 +93,4 @@ The frontend is a single page app built with React.
 
 ## Development
 
-To contribute, see CONTRIBUTING.md. Pull requests welcome!
+To contribute, see `CONTRIBUTING.md`. Pull requests are welcome!
