@@ -1,20 +1,12 @@
 # blockchain_integration.py
 
-class BlockchainIntegration:
+class BlockchainService:
     def __init__(self):
         # Initialization for blockchain connections and protocols
         pass
 
-    def connect_to_creochain(self):
-        # Code to establish a connection to CreoChain
+    def initialize(self):
+        # Code to initialize the blockchain service
         pass
 
-    def manage_creocoin_transactions(self):
-        # Handle transactions related to CreoCoin
-        pass
-
-    def enable_nft_minting_and_trading(self):
-        # Allow users to mint and trade NFTs
-        pass
-
-# Additional methods as needed
+    # Additional methods for blockchain service as needed
