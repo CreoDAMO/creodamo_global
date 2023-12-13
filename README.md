@@ -65,7 +65,7 @@ git clone https://github.com/creodamo/creodamo_platform.git
 cd creodamo_platform
 pip install poetry
 cd creodamo_plaform
-python creodamo.py
+python creodamo.py --debug
 ```
 
 This will start the CreoDAMO backend on http://localhost:8000.
