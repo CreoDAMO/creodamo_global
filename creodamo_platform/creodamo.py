@@ -4,7 +4,7 @@ import argparse
 from blockchain_integration import BlockchainService
 from ai_ml_services import EthicalAIML
 from cloud_services import DecentralizedCloudService
-from security_framework import CryptoSecurity
+from security_framework import CryptoSecurityManager  # Corrected import statement
 from community_engagement import CommunityEngagementPlatform
 from regulatory_compliance import RegulatoryComplianceManager
 from security_pipeline import SecurityPipeline
@@ -25,7 +25,7 @@ class CreoDAMO:
         self.blockchain_service = BlockchainService()
         self.ai_ml_service = EthicalAIML()
         self.cloud_service = DecentralizedCloudService()
-        self.security_manager = CryptoSecurity()
+        self.security_manager = CryptoSecurityManager()  # Corrected class instantiation
         self.community_platform = CommunityEngagementPlatform()
         self.compliance_manager = RegulatoryComplianceManager()
         self.security_pipeline = SecurityPipeline()
