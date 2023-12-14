@@ -1,12 +1,12 @@
 # cloud_services.py
 
-class DecentralizedCloudService:
+class CryptoSecurityManager:
     def __init__(self):
-        # Initialization code for DecentralizedCloudService
+        # Initialization code for CryptoSecurityManager
         pass
 
     def initialize(self):
-        # Code to initialize the Decentralized Cloud Service
+        # Code to initialize the Crypto Security Manager
         pass  # Replace 'pass' with actual initialization code if needed
 
 # Additional methods as needed
