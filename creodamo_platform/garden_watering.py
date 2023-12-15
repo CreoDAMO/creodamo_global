@@ -2,19 +2,22 @@
 
 import datetime
 import time
-import sms
-import RPi.GPIO as GPIO
-
-PUMP_PIN = 17
+import trading
+import realm_of_creo
 
 def initialize():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(PUMP_PIN, GPIO.OUT)
+    # Initialize any necessary components for trading and the Realm of Creo
+    print("Initialization Complete.")
 
-def water_garden():
-    GPIO.output(PUMP_PIN, GPIO.HIGH)
-    time.sleep(5)
-    GPIO.output(PUMP_PIN, GPIO.LOW)
+def perform_trading():
+    # Perform trading activities using the trading.py script
+    trading.start_trading()
+    print("Trading activities performed!")
+
+def trigger_event_in_realm():
+    # Trigger an event in the Realm of Creo using the realm_of_creo.py script
+    realm_of_creo.trigger_event()
+    print("Event triggered in the Realm of Creo!")
 
 def main():
     initialize()
@@ -23,10 +26,11 @@ def main():
         now = datetime.datetime.now()
         
         if now.hour == 7 and now.minute == 0:
-            water_garden()
-            sms.send("+15558675309", "Garden watered!")
+            perform_trading()
+            trigger_event_in_realm()
+            print("Trading and Realm of Creo event triggered!")
         
-        time.sleep(3600)
+        time.sleep(3600)  # Sleep for one hour
       
 if __name__ == '__main__':
     main()
