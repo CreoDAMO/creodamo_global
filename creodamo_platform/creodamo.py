@@ -8,32 +8,33 @@ import sys
 from concurrent.futures import ProcessPoolExecutor
 from typing import Dict, Optional
 
-# Import your modules here
-from service import Service
-from blockchain_integration import BlockchainService
-from cloud_services import DecentralizedCloudService
-from community_engagement import CommunityEngagementPlatform
-from creolang import CreoLang
-from documentation import Documentation
-from feature_flags import FeatureFlags
-from garden_watering import GardenWatering
-from governance import Governance
-from incident_response import IncidentResponse
-from internationalization import Internationalization
-from kubernetes_deployment import KubernetesDeployment
-from monitoring import Monitoring
-from monetization import Monetization
-from proof_of_creo import ProofOfCreo
-from regulatory_compliance import RegulatoryComplianceManager
-from security_framework import CryptoSecurityManager
-from security_pipeline import SecurityPipeline
-from service_mesh import ServiceMesh
-from strategies import Strategies
-from trading import Trading
-from user_management import UserManagement
-from utils import Utils
-from ventures_fund import VenturesFund
-from websocket import WebSocket
+# Adjusting imports for relative paths
+from .service import Service
+from .blockchain_integration import BlockchainService
+from .cloud_services import DecentralizedCloudService
+from .community_engagement import CommunityEngagementPlatform
+from .creolang import CreoLang
+from .documentation import Documentation
+from .feature_flags import FeatureFlags
+from .garden_watering import GardenWatering
+from .governance import Governance
+from .incident_response import IncidentResponse
+from .internationalization import Internationalization
+from .kubernetes_deployment import KubernetesDeployment
+from .monitoring import Monitoring
+from .monetization import Monetization
+from .proof_of_creo import ProofOfCreo
+from .regulatory_compliance import RegulatoryComplianceManager
+from .security_framework import CryptoSecurityManager
+from .security_pipeline import SecurityPipeline
+from .service_mesh import ServiceMesh
+from .strategies import Strategies
+from .trading import Trading
+from .user_management import UserManagement
+from .utils import Utils
+from .ventures_fund import VenturesFund
+from .websocket import WebSocket
+
 class CreoDAMO:
     def __init__(self, debug: bool = False) -> None:
         self.debug = debug
