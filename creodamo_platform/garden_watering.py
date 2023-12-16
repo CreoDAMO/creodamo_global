@@ -3,7 +3,7 @@
 import datetime
 import time
 import trading
-import realm_of_creo
+import creodamo_platform.realm_of_creo as realm_of_creo
 
 def initialize():
     # Initialize any necessary components for trading and the Realm of Creo
