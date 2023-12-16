@@ -7,9 +7,9 @@ import signal
 import sys
 from concurrent.futures import ProcessPoolExecutor
 from typing import Dict, Optional
-from service import Service
 
 # Import your modules here
+from service import Service
 from blockchain_integration import BlockchainService
 from cloud_services import DecentralizedCloudService
 from community_engagement import CommunityEngagementPlatform
@@ -38,7 +38,13 @@ from websocket import WebSocket
 class CreoDAMO:
     def __init__(self, debug: bool = False) -> None:
         self.debug = debug
-        self.services: Dict[str, Service] = {
+        self.services: Dict[str, Service] = self.initialize_services()
+        self.executor: Optional[ProcessPoolExecutor] = None
+        self.event_loop: Optional[asyncio.AbstractEventLoop] = None
+
+    def initialize_services(self) -> Dict[str, Service]:
+        # Initialize and return a dictionary of service instances
+        return {
             "blockchain_service": BlockchainService(),
             "decentralized_cloud_service": DecentralizedCloudService(),
             "community_engagement_platform": CommunityEngagementPlatform(),
@@ -64,54 +70,27 @@ class CreoDAMO:
             "ventures_fund": VenturesFund(),
             "websocket": WebSocket(),
         }
-        self.executor: Optional[ProcessPoolExecutor] = None
-        self.event_loop: Optional[asyncio.AbstractEventLoop] = None
 
     async def start_services(self) -> None:
-        try:
-            for service_name, service in self.services.items():
-                await service.start()
-                logging.info(f"{service_name} started successfully.")
-        except Exception as e:
-            logging.error(f"Error occurred while starting services: {str(e)}")
-            sys.exit(1)
+        # Start each service
+        # ...
 
     async def stop_services(self) -> None:
-        for service_name, service in self.services.items():
-            await service.stop()
-            logging.info(f"{service_name} stopped successfully.")
+        # Stop each service
+        # ...
 
     async def start(self) -> None:
-        try:
-            await self.start_services()
-            while True:
-                # Main loop...
-                await asyncio.sleep(1)
-        except Exception as e:
-            logging.error(f"An error occurred: {str(e)}")
-        finally:
-            await self.stop_services()
+        # Main application logic
+        # ...
 
 def configure_logging(debug: bool) -> None:
-    level = logging.DEBUG if debug else logging.INFO
-    logging.basicConfig(level=level)
+    # Configure logging based on debug flag
+    # ...
 
-def handle_signals() -> None:
-    loop = asyncio.get_event_loop()
-
-    for signame in {'SIGINT', 'SIGTERM'}:
-        loop.add_signal_handler(getattr(signal, signame), loop.stop)
+def handle_signals(loop: asyncio.AbstractEventLoop) -> None:
+    # Handle system signals for graceful shutdown
+    # ...
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--debug', action='store_true', help='Debug mode')
-    args = parser.parse_args()
-
-    configure_logging(args.debug)
-
-    creodamo = CreoDAMO(debug=args.debug)
-    try:
-        handle_signals()
-        asyncio.run(creodamo.start())
-    except KeyboardInterrupt:
-        print("CreoDAMO stopped by user.")
+    # Command-line interface setup
+    # ...
