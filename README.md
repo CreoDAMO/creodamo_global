@@ -1,79 +1,37 @@
 # CreoDAMO
 
-creodamo/
-├── creodamo/
-|   ├── __init__.py
-|   ├── settings.py
-|   ├── urls.py
-|   ├── wsgi.py
-|   ├── asgi.py
-|   └── ...
-├── apps/
-|   ├── blockchain/
-|   |   ├── __init__.py
-|   |   ├── models.py
-|   |   ├── views.py
-|   |   └── ...
-|   ├── ai_ml/
-|   |   ├── __init__.py
-|   |   ├── models.py
-|   |   ├── services.py
-|   |   └── ...
-|   └── ...
-├── frontend/
-|   ├── build/
-|   ├── public/
-|   ├── src/
-|   └── ...  
-├── docs/
-├── tests/
-├── tools/
-├── scripts/
-├── config/
-├── pyproject.toml
-├── README.md
-└── ...
-
-Here are some key points about the structure:
-
-- The `creodamo/` folder is the main Django project folder.
-- Inside the `creodamo/` folder, you will find the Django project files such as `settings.py`, `urls.py`, `wsgi.py`, `asgi.py`, and others.
-- The `apps/` folder contains the Django apps for each component or functionality. Each app has its own set of files, including `models.py`, `views.py`, and other files specific to that app.
-- The `frontend/` folder is where you can find the frontend code, which could be built using React or Vue.js, for example. It can have subfolders such as `build/`, `public/`, `src/`, and others, depending on the frontend framework or build system used.
-- The `docs/` folder is for documentation related to the project.
-- The `tests/` folder is where you can place your test scripts.
-- The `tools/` folder can contain any helper scripts or tools used in the project.
-- The `scripts/` folder is for any additional scripts needed for the project.
-- The `config/` folder can hold configuration files for the project.
-- The `pyproject.toml` file specifies the project dependencies using the Poetry package manager.
-- The `README.md` file provides instructions or information about the project.
-- Other files and folders not specified explicitly are left open for the specific needs and requirements of the project.
-
-## Decentralized Asset Management and Optimization
-
-CreoDAMO is a blockchain-based platform for securely managing digital assets.
+CreoDAMO, standing for Decentralized Asset Management and Optimization, is a visionary project helmed by a dedicated solo entrepreneur. It aims to transform asset management through blockchain technology and AI. This solo-driven venture has made notable strides in integrating complex technologies to create a secure, efficient platform.
 
 ## Getting Started
 
-To run CreoDAMO locally:
+To run CreoDAMO locally, follow these steps:
 
+1. Clone the repository:
 
-## Decentralized Asset Management and Optimization
+   ```
+   git clone https://github.com/creodamo/creodamo_platform.git
+   ```
 
-CreoDAMO is a blockchain-based platform for securely managing digital assets.
+2. Navigate to the project directory:
 
-## Getting Started
+   ````
+   cd creodamo_platform
+   ```
 
-To run CreoDAMO locally:
+3. Install the project dependencies using Poetry:
 
-git clone https://github.com/creodamo/creodamo_platform.git
-cd creodamo_platform
-pip install poetry
-cd creodamo_plaform
-python creodamo.py --debug
-```
+   ````
+   pip install poetry
+   poetry install
+   ```
 
-This will start the CreoDAMO backend on <http://localhost:8000>.
+4. Start the CreoDAMO backend:
+
+   ````
+   python creodamo.py --debug
+   ```
+
+   This will start the CreoDAMO backend on http://localhost:8000.
 
 ## Documentation
 
@@ -98,4 +56,5 @@ The frontend is a single page app built with React.
 
 ## Development
 
-To contribute, see `CONTRIBUTING.md`. Pull requests are welcome!
+To contribute, please see the `CONTRIBUTING.md` file. Pull requests are welcome!
+```
