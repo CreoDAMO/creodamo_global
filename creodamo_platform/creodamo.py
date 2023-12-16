@@ -8,6 +8,7 @@ import sys
 from concurrent.futures import ProcessPoolExecutor
 from typing import Dict, Optional
 
+# Existing imports
 from service import Service
 from blockchain_integration import BlockchainService
 from cloud_services import DecentralizedCloudService
@@ -33,6 +34,16 @@ from user_management import UserManagement
 from utils import Utils
 from ventures_fund import VenturesFund
 from websocket import WebSocket
+
+# Definition of RealmOfCreo class
+class RealmOfCreo(Service):
+    async def start(self):
+        # Implementation for starting RealmOfCreo service
+        pass
+
+    async def stop(self):
+        # Implementation for stopping RealmOfCreo service
+        pass
 
 class CreoDAMO:
     def __init__(self, debug: bool = False) -> None:
@@ -67,6 +78,7 @@ class CreoDAMO:
             "utils": Utils(),
             "ventures_fund": VenturesFund(),
             "websocket": WebSocket(),
+            "realm_of_creo": RealmOfCreo(),  # Adding RealmOfCreo service
         }
 
     async def start_services(self) -> None:
@@ -79,16 +91,15 @@ class CreoDAMO:
 
     async def start(self) -> None:
         await self.start_services()
-        # Add your main application logic here
+        # Main application logic here
         # ...
 
 def configure_logging(debug: bool) -> None:
-    # Configure logging based on debug flag
-    # ...
+    logging.basicConfig(level=logging.DEBUG if debug else logging.INFO)
 
 def handle_signals(loop: asyncio.AbstractEventLoop) -> None:
-    # Handle system signals for graceful shutdown
-    # ...
+    loop.add_signal_handler(signal.SIGINT, loop.stop)
+    loop.add_signal_handler(signal.SIGTERM, loop.stop)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
