@@ -4,29 +4,40 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: creodamo
+  labels:
+    app: creodamo
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: creodamo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:
         app: creodamo
     spec:
+      serviceAccountName: creodamo-service-account
       containers:
       - name: creodamo
         image: creodamo:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: "128Mi"
+            cpu: "100m"
           limits:
-            memory: "512Mi"
-            cpu: "500m"
+            memory: "256Mi"
+            cpu: "200m"
+        envFrom:
+        - secretRef:
+            name: creodamo-secret
         securityContext:
           allowPrivilegeEscalation: false
           runAsNonRoot: true
@@ -41,3 +52,146 @@ spec:
             port: 8000
           initialDelaySeconds: 3
           periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 3
+      initContainers:
+      - name: init-creodamo
+        image: busybox
+        command: ['sh', '-c', 'echo "Initializing CreoDAMO"']
+      volumes:
+      - name: config-volume
+        configMap:
+          name: creodamo-config
+      - name: secret-volume
+        secret:
+          secretName: creodamo-secret
+---
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta2
+metadata:
+  name: creodamo-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: creodamo
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: creodamo-service
+spec:
+  selector:
+    app: creodamo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
+---
+# Network Policies
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: creodamo-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: creodamo
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector: {}
+  egress:
+  - to:
+    - podSelector: {}
+---
+# Admission Controller Configuration
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: creodamo-admission-controller
+webhooks:
+  - name: validate.creodamo.io
+    rules:
+    - apiGroups: [""]
+      apiVersions: ["v1"]
+      operations: ["CREATE", "UPDATE"]
+      resources: ["pods"]
+    clientConfig:
+      service:
+        name: creodamo-validator-service
+        namespace: default
+        path: "/validate"
+---
+# Prometheus Metrics Configuration
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: creodamo-service-monitor
+spec:
+  selector:
+    matchLabels:
+      app: creodamo
+  endpoints:
+  - port: metrics
+---
+# Logging and Monitoring with Loki/Grafana
+apiVersion: loki.grafana.com/v1
+kind: LokiStack
+metadata:
+  name: creodamo-loki
+spec:
+  storage: {}
+---
+# Runtime Security Monitoring with Falco
+apiVersion: falco.org/v1
+kind: Falco
+metadata:
+  name: creodamo-falco
+spec:
+  rules:
+  - rule: Detect unusual network activity
+---
+# Canary Release Configuration
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: creodamo-canary
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: creodamo
+  service:
+    port: 80
+ analysis:
+    interval: "1m"
+    threshold: 5
+    iterations: 10
+    match:
+      - headers:
+          "X-Canary":
+            exact: "creodamo"
+    metrics:
+      - name: request-success-rate
+        thresholdRange:
+          min: 99
+      - name: request-duration
+        thresholdRange:
+          max: 500
