@@ -1,5 +1,3 @@
-# collaboration.py
-
 from creolang import CreoLangInterpreter
 from code_review import ReviewBoard
 from security import RoleBasedAuthentication, AuditLog
