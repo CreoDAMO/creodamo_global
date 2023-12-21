@@ -1,29 +1,13 @@
 import argparse
 import asyncio
 import logging
-import signal
-import firebase_admin
-from firebase_admin import credentials, firestore
-from concurrent.futures import ThreadPoolExecutor
-from typing import Optional
 import os
-import json
-import bcrypt
-import sqlalchemy
-from dotenv import load_dotenv
-from aiohttp import web
-import aiohttp_jinja2
-import jinja2
 import ssl
-from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.asymmetric import padding
-from cryptography import x509
-from cryptography.x509.oid import NameOID
-from datetime import datetime, timedelta
+from aiohttp import web
+from dotenv import load_dotenv
+from firebase_admin import credentials, firestore, initialize_app
 
-# Custom modules
+# Custom modules import
 from creovm import CreoVM
 from creoblockchain import CreoBlockchain
 from ai_ml_services import AIMLServices
@@ -50,15 +34,16 @@ from security_pipeline import SecurityPipeline
 from service import Service
 from strategies import Strategies
 from trading import Trading
-from user import UserManagement
+from user_management import UserManagement
 from utils import Utils
 from ventures_fund import VenturesFund
 from websocket import WebSocket
-# Additional modules
 from rust_integration import RustIntegration
 from fuzz_testing import FuzzTestManager
 from secure_enclave import SecureEnclaveManager
 from multi_language_support import LanguageSupportManager
+from creomultiversehub import CreoMultiverseHub
+from performance_profiling import Profiler
 
 # Load environment variables
 load_dotenv()
@@ -69,25 +54,11 @@ class Event:
 class CreoDAMO:
     def __init__(self):
         self.debug = False
-        self.executor: Optional[ThreadPoolExecutor] = None
-        self.event_loop: Optional[asyncio.AbstractEventLoop] = None
-
         self.init_firebase()
         self.init_creovm()
         self.init_creoblockchain()
-
-        # Initializing all modules
-        self.ai_ml_services = AIMLServices()
-        self.authentication = Authentication()
-        # ... initialization of other modules ...
-
-        # Initialize additional security and integration modules
-        self.rust_integration = RustIntegration()
-        self.fuzz_test_manager = FuzzTestManager()
-        self.secure_enclave_manager = SecureEnclaveManager()
-        self.language_support_manager = LanguageSupportManager()
-
-        self.on_data_processed = Event()
+        self.init_creomultiversehub()
+        self.initialize_other_modules()
         self.ssl_context = self.create_ssl_context()
 
     def init_firebase(self):
@@ -95,19 +66,23 @@ class CreoDAMO:
         # ...
 
     def init_creovm(self):
-        # Initialize CreoVM
         self.creovm = CreoVM()
 
     def init_creoblockchain(self):
-        # Initialize CreoBlockchain
         config = self.load_config()
         self.creoblockchain = CreoBlockchain(config)
+
+    def init_creomultiversehub(self):
+        self.creomultiversehub = CreoMultiverseHub()
+
+    def initialize_other_modules(self):
+        self.ai_ml_services = AIMLServices()
+        self.authentication = Authentication()
+        # ... initialization of other modules ...
 
     def create_ssl_context(self):
         # SSL/TLS context creation logic
         # ...
-
-    # ... other methods ...
 
     async def start(self):
         app = web.Application()
@@ -117,8 +92,6 @@ class CreoDAMO:
         # Load configuration from environment or a config file
         # ...
 
-    # ... Additional methods and functionalities ...
-
 def main():
     parser = argparse.ArgumentParser(description="CreoDAMO Platform")
     parser.add_argument('--debug', action='store_true', help='Enable debug mode')
@@ -127,9 +100,6 @@ def main():
     logging.basicConfig(level=logging.DEBUG if args.debug else logging.INFO)
     creodamo = CreoDAMO()
     loop = asyncio.get_event_loop()
-
-    loop.add_signal_handler(signal.SIGINT, lambda: asyncio.create_task(creodamo.shutdown()))
-    loop.add_signal_handler(signal.SIGTERM, lambda: asyncio.create_task(creodamo.shutdown()))
 
     try:
         loop.run_until_complete(creodamo.start())
