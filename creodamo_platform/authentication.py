@@ -1,5 +1,3 @@
-# authentication.py
-
 from creolang import CreoLangInterpreter
 import jwt
 from flask import request, jsonify
