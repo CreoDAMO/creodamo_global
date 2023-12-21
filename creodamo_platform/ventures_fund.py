@@ -1,5 +1,3 @@
-# ventures_fund.py
-
 import uvicorn
 from fastapi import FastAPI, Depends
 from sqlalchemy import create_engine, Column, Integer, String
