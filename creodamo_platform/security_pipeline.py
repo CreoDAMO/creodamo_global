@@ -1,5 +1,3 @@
-# security_pipeline.py
-
 import asyncio
 import logging
 from creolang import CreoLangInterpreter
