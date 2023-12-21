@@ -1,44 +1,14 @@
-import requests
-import os
-import logging
-from dotenv import load_dotenv
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
-# Load environment variables
-load_dotenv()
+[tool.poetry]
+name = "myproject"
+version = "0.1.0"
+description = "My project description."
+authors = ["Jacque Antoine DeGraff<jacquedegraff@creodamo.com>"]
 
-# Set up logging
-logging.basicConfig(filename='app.log', level=logging.INFO)
-
-def validate_input(user_input):
-    # Implement stricter validation checks here
-    if not user_input.isalnum():
-        logging.error("Invalid input received")
-        return False
-    return True
-
-def send_secure_request(url, api_key):
-    headers = {'Authorization': f'Bearer {api_key}'}
-    try:
-        response = requests.get(url, headers=headers, verify=True)
-        return response
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Request failed: {e}")
-        return None
-
-def main():
-    api_key = os.getenv('API_KEY')
-    user_input = input("Enter your input: ")
-
-    if validate_input(user_input):
-        url = f"https://api.example.com/data?query={user_input}"
-        response = send_secure_request(url, api_key)
-        if response and response.status_code == 200:
-            # Process response
-            logging.info("Successful request")
-        else:
-            logging.error("Request failed or returned an error")
-    else:
-        logging.error("Input validation failed")
-
-if __name__ == "__main__":
-    main()
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.26.0"
+creolang = "^1.0.0"
