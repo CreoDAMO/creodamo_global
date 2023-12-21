@@ -1,5 +1,3 @@
-# user.py
-
 from feedback import Survey
 from creolang import CreoLangInterpreter
 import user_segmentation
