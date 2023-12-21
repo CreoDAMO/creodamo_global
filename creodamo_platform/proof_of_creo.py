@@ -1,5 +1,3 @@
-# proof_of_creo.py
-
 import logging
 from blockchain_security import BlockchainSecurity
 from global_commission import GlobalCommission
