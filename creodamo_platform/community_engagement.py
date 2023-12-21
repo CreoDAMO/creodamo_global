@@ -1,5 +1,3 @@
-# community_engagement.py
-
 from creolang import CreoLangInterpreter
 import api_integration
 import monetization
