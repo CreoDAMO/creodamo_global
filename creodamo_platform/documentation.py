@@ -1,5 +1,3 @@
-# documentation.py
-
 from creolang import CreoLangInterpreter
 import knowledge_base
 import content_generator
