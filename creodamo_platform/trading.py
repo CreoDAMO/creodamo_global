@@ -1,6 +1,3 @@
-# TradingSystem with integrated CreoDAMO functionalities
-
-# Security and Validation
 class CreoVerify:
     @staticmethod
     def vulnerability_assessment(strategy):
