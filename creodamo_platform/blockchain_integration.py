@@ -1,5 +1,3 @@
-# blockchain_integration.py
-
 import asyncio
 from creolang import CreoLangInterpreter
 from proof_of_creo import ProofOfCreoValidator
