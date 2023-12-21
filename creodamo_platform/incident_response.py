@@ -1,5 +1,3 @@
-# incident_response.py
-
 from creolang import CreoLangInterpreter
 import monitoring
 import communication
