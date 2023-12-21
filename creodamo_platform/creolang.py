@@ -27,7 +27,7 @@ from performance_profiling import Profiler
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class CreoDAMO:
+class CreoMultiverseHub:
     def __init__(self):
         self.init_services()
 
@@ -52,19 +52,19 @@ class CreoDAMO:
         pass
 
 def main():
-    parser = argparse.ArgumentParser(description="CreoDAMO Advanced Technology Integration")
+    parser = argparse.ArgumentParser(description="CreoMultiverseHub Advanced Technology Integration")
     parser.add_argument('--debug', action='store_true', help='Enable debug mode')
     args = parser.parse_args()
 
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
 
-    creo_damo = CreoDAMO()
-    asyncio.get_event_loop().run_until_complete(creo_damo.start())
+    creo_hub = CreoMultiverseHub()
+    asyncio.get_event_loop().run_until_complete(creo_hub.start())
 
     # Performance profiling
     with Profiler() as profiler:
-        asyncio.get_event_loop().run_until_complete(creo_damo.start())
+        asyncio.get_event_loop().run_until_complete(creo_hub.start())
     profiler.report()
 
 if __name__ == "__main__":
