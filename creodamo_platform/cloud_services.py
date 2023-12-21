@@ -1,5 +1,3 @@
-# cloud_services.py
-
 from creolang import CreoLangInterpreter
 import ipfshttpclient
 import zlib
