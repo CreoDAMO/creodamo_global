@@ -1,5 +1,3 @@
-# governance.py
-
 from creolang import CreoLangInterpreter
 
 class GovernanceModel:
