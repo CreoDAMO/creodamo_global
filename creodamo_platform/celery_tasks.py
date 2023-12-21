@@ -1,5 +1,3 @@
-# celery_task.py
-
 import os
 import logging
 from typing import Dict
