@@ -1,4 +1,3 @@
-# Import necessary modules
 from creo_nft import CreoNFT
 from nft_marketplace import NFTMarketplace
 from webassembly_interoperability import WebAssemblyInteroperability
