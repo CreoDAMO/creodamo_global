@@ -1,5 +1,3 @@
-# regulatory_compliance.py
-
 from creolang import CreoLangInterpreter
 import venture_capital
 import audit_sandbox
