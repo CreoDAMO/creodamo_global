@@ -1,5 +1,3 @@
-# garden_watering.py
-
 import datetime
 import time
 import trading
