@@ -1,5 +1,3 @@
-# websocket.py
-
 import websockets
 import json
 import os
