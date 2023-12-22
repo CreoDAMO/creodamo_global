@@ -1,5 +1,3 @@
-# Combined Benchmarking & Metrics Script
-
 import benchmarks
 import metrics
 
