@@ -1,5 +1,3 @@
-# Dockerfile
-
 import kubernetes
 from kubernetes import client, config
 import nft_management
