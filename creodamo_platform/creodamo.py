@@ -7,49 +7,11 @@ from aiohttp import web
 from dotenv import load_dotenv
 from firebase_admin import credentials, firestore, initialize_app
 
-# Custom modules import
-from creovm import CreoVM
-from creoblockchain import CreoBlockchain
-from ai_ml_services import AIMLServices
-from authentication import Authentication
-from blockchain_integration import BlockchainIntegration
-from celery_tasks import CeleryTasks
-from chaos_engineering import ChaosEngineering
-from cloud_services import CloudServices
-from collaboration import Collaboration
-from community_engagement import CommunityEngagement
-from creodamo_ecommerce import CreoDAMOEcommerce
-from creolang import CreoLang
-from documentation import Documentation
-from feature_flags import FeatureFlags
-from garden_watering import GardenWatering
-from governance import Governance
-from incident_response import IncidentResponse
-from monitoring import Monitoring
-from proof_of_creo import ProofOfCreo
-from realm_of_creo import RealmOfCreo
-from regulatory_compliance import RegulatoryCompliance
-from security_framework import SecurityFramework
-from security_pipeline import SecurityPipeline
-from service import Service
-from strategies import Strategies
-from trading import Trading
-from user_management import UserManagement
-from utils import Utils
-from ventures_fund import VenturesFund
-from websocket import WebSocket
-from rust_integration import RustIntegration
-from fuzz_testing import FuzzTestManager
-from secure_enclave import SecureEnclaveManager
-from multi_language_support import LanguageSupportManager
-from creomultiversehub import CreoMultiverseHub
-from performance_profiling import Profiler
+# Import all custom modules
+from . import *
 
 # Load environment variables
 load_dotenv()
-
-class Event:
-    # Event class implementation...
 
 class CreoDAMO:
     def __init__(self):
