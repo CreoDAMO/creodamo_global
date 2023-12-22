@@ -1,7 +1,3 @@
-# authenticate_user.cl
-
-# Script for authenticating users in CreoDAMO
-
 function authenticate(token, secret_key) {
     try {
         // Decoding the JWT token
