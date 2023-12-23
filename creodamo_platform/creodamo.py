@@ -1,73 +1,109 @@
 import argparse
 import asyncio
 import logging
-import os
-import ssl
 from aiohttp import web
-from dotenv import load_dotenv
-from firebase_admin import credentials, firestore, initialize_app
 
-# Import all custom modules
-from . import *
+# Import all the necessary modules
+from .ai_ml_services import AIMLServices
+from .authentication import Authentication
+from .blockchain_integration import BlockchainIntegration
+from .chaos_engineering import ChaosEngineering
+from .cloud_services import CloudServices
+from .collaboration import Collaboration
+from .community_engagement import CommunityEngagement
+from .creolang import CreoLang
+from .creomultiversehub import CreoMultiverseHub
+from .creovm import CreoVM
+from .documentation import Documentation
+from .feature_flags import FeatureFlags
+from .firebase_admin import FirebaseAdmin
+from .garden_watering import GardenWatering
+from .governance import Governance
+from .incident_response import IncidentResponse
+from .monitoring import Monitoring
+from .proof_of_creo import ProofOfCreo
+from .realm_of_creo import RealmOfCreo
+from .regulatory_compliance import RegulatoryCompliance
+from .rust_binding import RustBinding
+from .rust_integration import RustIntegration
+from .security_framework import SecurityFramework
+from .security_pipeline import SecurityPipeline
+from .service import Service
+from .strategies import Strategies
+from .trading import Trading
+from .user import User
+from .utils import Utils
+from .ventures_fund import VenturesFund
+from .websocket import Websocket
 
-# Load environment variables
-load_dotenv()
 
 class CreoDAMO:
-    def __init__(self):
-        self.debug = False
-        self.init_firebase()
-        self.init_creovm()
-        self.init_creoblockchain()
-        self.init_creomultiversehub()
-        self.initialize_other_modules()
-        self.ssl_context = self.create_ssl_context()
+    def __init__(self, debug=False):
+        self.debug = debug
+        self.ssl_context = None
+        self.initialize_modules()
 
-    def init_firebase(self):
-        # Firebase initialization logic
-        # ...
-
-    def init_creovm(self):
-        self.creovm = CreoVM()
-
-    def init_creoblockchain(self):
-        config = self.load_config()
-        self.creoblockchain = CreoBlockchain(config)
-
-    def init_creomultiversehub(self):
-        self.creomultiversehub = CreoMultiverseHub()
-
-    def initialize_other_modules(self):
+    def initialize_modules(self):
+        # Initialize all the required modules
         self.ai_ml_services = AIMLServices()
         self.authentication = Authentication()
-        # ... initialization of other modules ...
-
-    def create_ssl_context(self):
-        # SSL/TLS context creation logic
-        # ...
+        self.blockchain_integration = BlockchainIntegration()
+        self.chaos_engineering = ChaosEngineering()
+        self.cloud_services = CloudServices()
+        self.collaboration = Collaboration()
+        self.community_engagement = CommunityEngagement()
+        self.creolang = CreoLang()
+        self.creomultiversehub = CreoMultiverseHub()
+        self.creovm = CreoVM()
+        self.documentation = Documentation()
+        self.feature_flags = FeatureFlags()
+        self.firebase_admin = FirebaseAdmin()
+        self.garden_watering = GardenWatering()
+        self.governance = Governance()
+        self.incident_response = IncidentResponse()
+        self.monitoring = Monitoring()
+        self.proof_of_creo = ProofOfCreo()
+        self.realm_of_creo = RealmOfCreo()
+        self.regulatory_compliance = RegulatoryCompliance()
+        self.rust_binding = RustBinding()
+        self.rust_integration = RustIntegration()
+        self.security_framework = SecurityFramework()
+        self.security_pipeline = SecurityPipeline()
+        self.service = Service()
+        self.strategies = Strategies()
+        self.trading = Trading()
+        self.user = User()
+        self.utils = Utils()
+        self.ventures_fund = VenturesFund()
+        self.websocket = Websocket()
 
     async def start(self):
-        app = web.Application()
-        web.run_app(app, ssl_context=self.ssl_context)
+        try:
+            app = web.Application()
+            web.run_app(app, ssl_context=self.ssl_context)
+        except Exception as e:
+            logging.error(f"An error occurred while starting the application: {e}")
+            # Handle or re-raise the exception, as appropriate
 
-    def load_config(self):
-        # Load configuration from environment or a config file
-        # ...
+    async def shutdown(self):
+        # Implement graceful shutdown logic
+        ...
+
 
 def main():
     parser = argparse.ArgumentParser(description="CreoDAMO Platform")
     parser.add_argument('--debug', action='store_true', help='Enable debug mode')
     args = parser.parse_args()
 
-    logging.basicConfig(level=logging.DEBUG if args.debug else logging.INFO)
-    creodamo = CreoDAMO()
-    loop = asyncio.get_event_loop()
-
     try:
-        loop.run_until_complete(creodamo.start())
+        creo_damo = CreoDAMO(debug=args.debug)
+        asyncio.run(creo_damo.start())
     except KeyboardInterrupt:
-        logging.info("CreoDAMO stopped securely by user.")
-        loop.run_until_complete(creodamo.shutdown())
+        asyncio.run(creo_damo.shutdown())
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+        # Implement additional error handling as necessary
+
 
 if __name__ == '__main__':
     main()
