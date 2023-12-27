@@ -1,47 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CreoDAMO Platform</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreoDAMO Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="app" class="container">
+        <header class="header">
+            <h1>CreoDAMO: Decentralized Autonomous Modular Operations</h1>
+            <!-- Additional navigation if needed -->
+        </header>
 
-  <div id="app">
-  
-    <h1>CreoDAMO</h1>
+        <main class="main-content">
+            <!-- Various sections like market data, community engagement, etc. -->
+        </main>
 
-    <div id="market-data">
-      <!-- Real-time market data will display here -->
+        <footer class="footer">
+            <!-- Social media and community links -->
+        </footer>
     </div>
 
-    <div id="trading-form">
-      <!-- Form to place trades -->
-    </div>
-
-  </div>
-
-  <script>
-
-    new Vue({
-      el: '#app',
-      data: {
-        marketData: [],
-        positions: []
-      },
-
-      mounted() {
-        // Connect to websocket for real-time updates
-      },
-
-      methods: {
-        placeOrder() {
-          // Send order to backend
-        }
-      }
-
-    });
-
-  </script>
-
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // Data properties for functionality
+            },
+            mounted() {
+                // Fetching and handling data
+            },
+            methods: {
+                // Methods for handling user interactions
+            }
+        });
+    </script>
 </body>
 </html>
