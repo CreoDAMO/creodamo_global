@@ -2,7 +2,7 @@ import asyncio
 import logging
 
 # Core Blockchain Functionality
-from creo_blockchain import CreoBlockchainCore
+from blockchain_core import BlockchainCore
 from proof_of_creo import ProofOfCreo
 from web3_interface import Web3Interface
 from ipfs_integration import IPFS
