@@ -11,7 +11,7 @@ authors = ["Jacque Antoine DeGraff <jacquedegraff@creodamo.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 requests = "^2.26.0"
-creolang = "^1.0.0"
+creolang = "^2.0.0"
 neo4j = "^5.0.0"  # For Neo4j graph database interaction
 matplotlib = "^3.4.2"  # For data visualization
 pandas = "^2.0.0"  # For data manipulation
