@@ -1,3 +1,4 @@
+![CreoDAMO_Global](https://github.com/CreoDAMO/creodamo_global/assets/151800081/b4018ba3-0d46-4220-9096-a58203772c7c)
 ```markdown
 # CreoDAMO Global
 
