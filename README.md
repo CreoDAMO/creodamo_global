@@ -23,7 +23,7 @@ Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/username/creodamo_global.git
-cd creodamo_global
+cd creodamo_platform
 poetry install
 ```
 
