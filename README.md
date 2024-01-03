@@ -1,23 +1,19 @@
 ```markdown
 # CreoDAMO Global
 
-CreoDAMO Global is a cutting-edge platform designed to unify various advanced technologies into a cohesive ecosystem. It integrates a wide range of modules and classes, encompassing virtual machine provisioning, blockchain integration, AI/ML services, secure authentication, cloud services, and collaborative tools, positioning itself as a leader in digital asset management and optimization.
+CreoDAMO Global unifies a spectrum of advanced technologies into an integrated ecosystem. It leverages modules from blockchain, AI/ML, virtual machine management, secure authentication, cloud solutions, and collaborative tools, emerging as a leader in the realm of digital asset management and optimization.
 
 ## Key Features
 
-- **CreoVM**: A powerful tool for efficient virtual machine management and provisioning.
-- **CreoBlockchain**: Seamlessly integrates blockchain technology for secure and transparent transactions.
-- **AIMLServices**: Offers advanced AI and ML capabilities for insightful data analysis.
-- **Authentication**: Robust authentication system ensuring secure platform access.
-- **Cloud Services**: Facilitates seamless deployment and management of applications in the cloud.
-- **Collaboration**: Enhances productivity through effective user collaboration and resource sharing.
-- **E-Commerce Solutions**: With CreoDAMOEcommerce, the platform supports secure digital asset transactions.
-- **Comprehensive Documentation**: Guides and documentation to assist users in platform navigation.
-- **Governance and Compliance Tools**: Ensures adherence to regulatory standards and best practices.
-- **Real-time Monitoring**: Tracks system performance for optimal operations.
-- **Advanced Security Framework**: Incorporates state-of-the-art security protocols.
-- **User Management**: Efficient management of user accounts and permissions.
-- **WebSocket Communication**: Supports real-time updates and notifications.
+- **CreoVM and CreoBlockchain**: Streamlines virtual machine provisioning and integrates blockchain technology for transaction security and transparency.
+- **AIMLServices**: Offers sophisticated AI and ML capabilities.
+- **Authentication**: Ensures secure access with a robust authentication system.
+- **Cloud Services**: Facilitates cloud-based deployment and management.
+- **Collaboration and E-Commerce Solutions**: Supports effective collaboration and secure digital asset transactions.
+- **Documentation**: Comprehensive guides and documentation available.
+- **Governance and Compliance**: Adheres to regulatory standards.
+- **Monitoring and Security**: Real-time monitoring and state-of-the-art security measures.
+- **User Management and WebSocket Communication**: Efficient user account management and real-time updates.
 
 ## Getting Started
 
@@ -33,25 +29,25 @@ poetry install
 
 ### Configuration
 
-Set up the necessary configurations including API keys, database credentials, and environment variables.
+Configure the platform with necessary API keys, database settings, and environment variables.
 
-### Running the Platform
+### Running CreoDAMO
 
-Launch CreoDAMO:
+Execute the following command to start CreoDAMO:
 
 ```bash
 poetry run python creodamo.py
 ```
 
-Access the platform at `http://localhost:8000`. Sign in or register a new account to begin.
+Access the platform at `http://localhost:8000` for web services. Use the Flask API at `http://localhost:5000/metadata` for metadata retrieval.
 
 ## Documentation
 
-Explore the [docs](/docs) directory for detailed information on each module and usage guidelines.
+Explore the [docs](/docs) directory for detailed module descriptions and usage guidelines.
 
 ## Contributing
 
-Contributions are welcome! Please adhere to the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome! Please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
@@ -59,7 +55,7 @@ CreoDAMO Global is open-source under the [Apache 2.0 License](LICENSE).
 
 ## Acknowledgements
 
-Special thanks to the maintainers of Firebase, Aiohttp, CreoVM, CreoBlockchain, TensorFlow, and other foundational technologies.
+Special thanks to the maintainers of foundational technologies and all contributors.
 
 ## Contact
 
@@ -68,4 +64,4 @@ For support or inquiries, reach out at jacquedegraff@creodamo.com.
 *Note: This README offers a snapshot of CreoDAMO Global and may not cover all aspects of the project.*
 ```
 
-This README provides a comprehensive overview of the CreoDAMO Global platform, highlighting its unique features and functionalities. It also guides new users through the installation and initial setup process, encourages contributions, and acknowledges the foundational technologies used in the project.
+This README now accurately reflects the current state of the CreoDAMO platform, providing clear instructions for setup, usage, and contribution. It also incorporates the metadata retrieval endpoints for both Flask and FastAPI, offering users a comprehensive guide to getting started with CreoDAMO.
