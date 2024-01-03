@@ -1,12 +1,10 @@
 import uvicorn
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from creopay import CreoPay
-from creoshowcase import CreoShowcase
-from creochain import CreoChain
-from creostack import CreoStack, SmartContract
+from creostack import SmartContract
 from security import authenticate_user, create_access_token, get_current_user
 import os
 
@@ -18,15 +16,6 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
-
-# Initialize CreoLang modules
-creo_pay = CreoPay()
-creo_showcase = CreoShowcase()
-creo_chain = CreoChain()
-creo_stack = CreoStack()
-
-# OAuth2 setup for authentication
-oauth2_scheme = Depends(get_current_user)
 
 # Database models
 class User(Base):
@@ -43,7 +32,7 @@ bonus_payment_contract = SmartContract("BonusPayment")
 warrants_contract = SmartContract("WarrantsExercise")
 
 @app.post("/execute_contract")
-def execute_contract(contract_name: str, data: dict, current_user: User = Depends(oauth2_scheme)):
+def execute_contract(contract_name: str, data: dict, current_user: User = Depends(get_current_user)):
     if contract_name == "MilestoneCompletion":
         return milestone_contract.execute(data)
     elif contract_name == "BonusPayment":
