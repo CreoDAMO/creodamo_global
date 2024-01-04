@@ -8,47 +8,54 @@ body {
     line-height: 1.6;
 }
 
-.container {
+.wrapper {
     width: 85%;
     margin: auto;
     overflow: hidden;
 }
 
 /* Header Styles */
-.header {
+.header-section {
     background-color: #004d99;
     color: #fff;
     padding: 1.2rem;
     text-align: center;
 }
 
-.header h1 {
+.header-section h1 {
     margin: 0;
 }
 
 /* Navigation Styles */
-.navigation ul {
+.nav-section ul {
     list-style: none;
     padding: 0;
 }
 
-.navigation ul li {
+.nav-section ul li {
     display: inline;
     margin: 0 15px;
 }
 
-.navigation a {
+.nav-section a {
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
 }
 
 /* Main Content Styles */
-.main-content {
+.content-section {
     padding: 20px;
 }
 
-.intro-section, .market-section, .community-section, .education-section, .arvr-section, .contact-section {
+.intro-section, .market-section, .community-section, .education-section, .arvr-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
     margin-bottom: 30px;
     padding: 20px;
     background: #fff;
@@ -56,7 +63,7 @@ body {
 }
 
 /* Footer Styles */
-.footer {
+.footer-section {
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -68,11 +75,11 @@ body {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-    .container {
+    .wrapper {
         width: 95%;
     }
 
-    .navigation ul li {
+    .nav-section ul li {
         display: block;
         margin: 10px 0;
     }
@@ -100,5 +107,3 @@ input[type="text"], input[type="email"], textarea {
     border-radius: 5px;
     border: 1px solid #ddd;
 }
-
-/* Add more custom styles as required */
