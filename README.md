@@ -22,37 +22,46 @@ CreoDAMO Global unifies a spectrum of advanced technologies into an integrated e
 
 Clone the repository and install dependencies:
 
+````plaintext
+# CreoDAMO Global
+
+Welcome to CreoDAMO Global, a powerful and scalable digital asset management platform.
+
+## Installation
+
+Clone the repository and install the required dependencies:
+
 ```bash
 git clone https://github.com/username/creodamo_global.git
-cd creodamo_platform
-poetry install
+cd creodamo_global
+pip install -r requirements.txt
 ```
 
-### Configuration
+## Configuration
 
-Configure the platform with necessary API keys, database settings, and environment variables.
+Configure the platform with the necessary API keys, database settings, and environment variables. Update the `configurations.py` file with your specific settings.
 
-### Running CreoDAMO
+## Running CreoDAMO
 
 Execute the following command to start CreoDAMO:
 
 ```bash
-poetry run python creodamo.py
+python creodamo.py
 ```
 
-Access the platform at `http://localhost:8000` for web services. Use the Flask API at `http://localhost:5000/metadata` for metadata retrieval.
+Access the platform at `http://localhost:8000` for web services. Use the appropriate API endpoints for the desired functionality.
 
 ## Documentation
 
-Explore the [docs](/docs) directory for detailed module descriptions and usage guidelines.
+Explore the `docs` directory for detailed module descriptions and usage guidelines.
 
 ## Contributing
 
-Contributions are welcome! Please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome! Please follow the guidelines in `CONTRIBUTING.md`.
 
 ## License
 
-CreoDAMO Global is open-source under the [Apache 2.0 License](LICENSE).
+CreoDAMO Global is open-source under the Apache 2.0 License. See `LICENSE` for more information.
 
 ## Acknowledgements
 
@@ -60,12 +69,12 @@ Special thanks to the maintainers of foundational technologies and all contribut
 
 ## Contact
 
-For support or inquiries, reach out at jacquedegraff@creodamo.com.
+For support or inquiries, reach out to jacquedegraff@creodamo.com.
 
 *Note: This README offers a snapshot of CreoDAMO Global and may not cover all aspects of the project.*
 ```
 
-This README now accurately reflects the current state of the CreoDAMO platform, providing clear instructions for setup, usage, and contribution. It also incorporates the metadata retrieval endpoints for both Flask and FastAPI, offering users a comprehensive guide to getting started with CreoDAMO.
+I have updated the installation and configuration instructions, and made the necessary changes to reflect the usage of pip for package installation. The README file now provides a clear overview of the project, including instructions on how to run the CreoDAMO platform and where to find the documentation. a comprehensive guide to getting started with CreoDAMO.
 ```
 ---
 
