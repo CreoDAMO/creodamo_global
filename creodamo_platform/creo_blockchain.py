@@ -10,103 +10,112 @@ from event_monitoring import EventMonitoring
 from smart_contract import SmartContract
 from governance_system import GovernanceSystem
 from security_manager import SecurityManager
+
+# Advanced Modules and AR/VR Integration
 from machine_learning import MachineLearning
 from real_time_collaboration import RealTimeCollaboration
+from uiux_master import UIUXMaster
 from version_control import VersionControl
 from data_visualization import DataVisualization
 from incident_response_plan import IncidentResponsePlan
-from uiux_master import UIUXMaster
-
-# AR/VR Integration
-from arvr_cultural_centers import ARVRCulturalCenters
-from arvr_education_forums import ARVREducationForums
-from arvr_regenerative_agriculture import ARVRRegenerativeAgriculture
-from arvr_indigenous_wisdom import ARVRIndigenousWisdom
-from arvr_mindfulness_practices import ARVRMindfulnessPractices
-from arvr_storytelling_platforms import ARVRStorytellingPlatforms
+from arvr_modules import (ARVRCulturalCenters, ARVREducationForums, 
+                          ARVRRegenerativeAgriculture, ARVRIndigenousWisdom, 
+                          ARVRMindfulnessPractices, ARVRStorytellingPlatforms)
 
 # Community Engagement and Ethical Initiatives
-from diversity_inclusion import DiversityInclusion
-from collaborative_platform import CollaborativePlatform
-from sustainability_practices import SustainabilityPractices
-from security_threat_simulator import SecurityThreatSimulator
+from community_modules import (DiversityInclusion, CollaborativePlatform, 
+                               SustainabilityPractices, SecurityThreatSimulator)
 
 # CreoLang's Advanced Features
-from creolang_cloud import CloudServices
-from creolang_satellite import SatelliteNetwork
-from creolang_quantum_comm import QuantumCommunication
+from creolang_modules import (CreoLangCloud, CreoLangSatellite, 
+                              CreoLangQuantumComm)
 
-# Ventures Fund
+# Ventures Fund Module
 from ventures_fund import VenturesFund
 
-# CreoBlockchain Main Class with Full Integration
+# Transaction Fee Manager for Hybrid Fee Structure
+from transaction_fee_manager import TransactionFeeManager
+
 class CreoBlockchain:
     def __init__(self, config):
         logging.basicConfig(level=logging.INFO)
+        self.config = config
         self.core = BlockchainCore(config)
         self.consensus = ProofOfCreo(self.core)
         self.web3 = Web3Interface(self.core)
-        self.storage = IPFS(self.core)
+        self.ipfs = IPFS(self.core)
         self.monitoring = EventMonitoring(self.core)
         self.contract = SmartContract(self.core)
         self.governance = GovernanceSystem(self.core)
         self.security = SecurityManager(self.core)
-        self.uiux = UIUXMaster(self.core)
         self.ml = MachineLearning(self.core)
         self.real_time_collab = RealTimeCollaboration(self.core)
+        self.uiux = UIUXMaster(self.core)
         self.version_control = VersionControl(self.core)
         self.data_viz = DataVisualization(self.core)
         self.incident_response = IncidentResponsePlan(self.core)
-        self.diversity = DiversityInclusion(self.core)
-        self.collaborative_platform = CollaborativePlatform(self.core)
-        self.sustainability = SustainabilityPractices(self.core)
-        self.security_threat_simulator = SecurityThreatSimulator(self.core)
 
-        # AR/VR Modules
-        self.arvr_cultural_centers = ARVRCulturalCenters(self.core)
-        self.arvr_education_forums = ARVREducationForums(self.core)
-        self.arvr_regenerative_agri = ARVRRegenerativeAgriculture(self.core)
-        self.arvr_indigenous_wisdom = ARVRIndigenousWisdom(self.core)
-        self.arvr_mindfulness = ARVRMindfulnessPractices(self.core)
-        self.arvr_storytelling = ARVRStorytellingPlatforms(self.core)
+        # AR/VR Modules Integration
+        self.arvr_modules = {
+            'cultural_centers': ARVRCulturalCenters(self.core),
+            'education_forums': ARVREducationForums(self.core),
+            'regenerative_agriculture': ARVRRegenerativeAgriculture(self.core),
+            'indigenous_wisdom': ARVRIndigenousWisdom(self.core),
+            'mindfulness_practices': ARVRMindfulnessPractices(self.core),
+            'storytelling_platforms': ARVRStorytellingPlatforms(self.core)
+        }
+
+        # Community and Ethical Initiatives
+        self.community_modules = {
+            'diversity_inclusion': DiversityInclusion(self.core),
+            'collaborative_platform': CollaborativePlatform(self.core),
+            'sustainability_practices': SustainabilityPractices(self.core),
+            'security_threat_simulator': SecurityThreatSimulator(self.core)
+        }
 
         # CreoLang's Advanced Features
-        self.cloud_services = CloudServices(self.core)
-        self.satellite_network = SatelliteNetwork(self.core)
-        self.quantum_communication = QuantumCommunication(self.core)
+        self.creolang_modules = {
+            'cloud': CreoLangCloud(self.core),
+            'satellite': CreoLangSatellite(self.core),
+            'quantum_comm': CreoLangQuantumComm(self.core)
+        }
 
         # Ventures Fund
         self.ventures_fund = VenturesFund(self.core)
 
-    async def run_demo(self):
-        logging.info("CreoBlockchain Initialized with All Components including Ventures Fund")
+        # Transaction Fee Manager
+        self.fee_manager = TransactionFeeManager(self.core)
 
-        # Core and Advanced Features Demonstration
+    async def run_demo(self):
+        logging.info("Starting CreoBlockchain Demo")
+
+        # Demonstrate various functionalities
         await self.consensus.verify_transaction("Sample Transaction")
         await self.ml.train_model("Sample Data")
         await self.uiux.design_interface()
         await self.security_threat_simulator.simulate_threat("network_attack")
 
         # AR/VR Features Demonstration
-        await self.arvr_cultural_centers.showcase_art()
-        await self.arvr_education_forums.launch_simulation()
-        await self.arvr_regenerative_agri.implement_practices()
-        await self.arvr_indigenous_wisdom.share_wisdom()
-        await self.arvr_mindfulness.conduct_session()
-        await self.arvr_storytelling.recount_tales()
+        await self.arvr_modules['cultural_centers'].showcase_art()
+        await self.arvr_modules['education_forums'].launch_simulation()
+        # ... other AR/VR demonstrations ...
 
         # CreoLang's Advanced Features Demonstration
-        await self.cloud_services.deploy_cloud_infrastructure()
-        await self.satellite_network.establish_satellite_connection()
-        await self.quantum_communication.initiate_secure_communication()
+        await self.creolang_modules['cloud'].deploy_cloud_infrastructure()
+        await self.creolang_modules['satellite'].establish_satellite_connection()
+        # ... other CreoLang demonstrations ...
 
         # Ventures Fund Demonstration
         await self.ventures_fund.evaluate_startup("Innovative Startup")
         await self.ventures_fund.allocate_funding("Innovative Startup", 100000)
 
+        # Transaction Fee Manager Demonstration
+        sample_transaction = {"type": "standard", "user_context": {"user_level": "regular"}}
+        fee = self.fee_manager.calculate_fee(sample_transaction)
+        logging.info(f"Calculated transaction fee: {fee}")
+
         logging.info("CreoBlockchain Demo Complete")
 
-# Initialize and run CreoBlockchain withFull Integration
 async def main():
     config = {
         # Configuration parameters
